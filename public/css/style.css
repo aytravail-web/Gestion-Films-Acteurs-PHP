@@ -1,0 +1,383 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Georgia, serif;
+    background: #f5f5f5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    text-align: center;
+    padding: 1rem;
+    border-bottom: 2px solid #333;
+    background: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+footer {
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 0.6rem;
+    background: #fff;
+    border-top: 2px solid #333;
+    font-size: 0.85rem;
+}
+
+main {
+    flex: 1;
+}
+/* index : grille des films */
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+    justify-content: center;
+    max-width: 900px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.movie {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    border: 2px solid #333;
+    padding: 0.5rem;
+    background: #fff;
+    width: 100%;
+}
+
+.movie__poster img {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    display: block;
+}
+
+.movie__title {
+    text-align: center;
+    padding: 0.4rem 0;
+    border-top: 1px solid #ccc;
+    margin-top: 0.4rem;
+    font-size: 0.9rem;
+}
+
+@media (min-width: 480px) {
+    .movie { width: calc(50% - 1rem); }
+}
+
+@media (min-width: 768px) {
+    .movie { width: calc(33.333% - 1rem); max-width: 250px; }
+}
+
+/* blocs centrés réutilisés sur movie.php et people.php */
+.movie__info,
+.people__info__block,
+.people,
+.movie__card {
+    max-width: 900px;
+    width: calc(100% - 2rem);
+    margin: 0.5rem auto;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 1rem;
+}
+
+/* movie.php : détails du film */
+.movie__info,
+.people__info__block {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.movie__info__image img {
+    width: 150px;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    display: block;
+}
+
+.movie__info__details,
+.people__info__details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    flex: 1;
+}
+
+.movie__top__line {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+}
+
+.movie__info__title p { font-weight: bold; font-size: 1.1rem; }
+.movie__date p { font-size: 0.9rem; color: #555; white-space: nowrap; }
+.movie__original__title { text-align: right; }
+.movie__original__title p { font-style: italic; font-size: 0.9rem; }
+.movie__slogan p { font-size: 0.9rem; font-weight: bold; }
+.movie__summary p { font-size: 0.85rem; color: #444; }
+
+/* movie.php : carte acteur */
+.people {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: inherit;
+    border: 2px solid #333;
+    padding: 0.5rem;
+}
+
+.people__avatar {
+    width: 70px;
+    height: 100px;
+    flex-shrink: 0;
+}
+
+.people__avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.people__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    flex: 1;
+    justify-content: center;
+}
+
+.people__role { font-weight: bold; font-size: 0.95rem; }
+.people__name { font-size: 0.9rem; color: #555; }
+
+/* people.php : infos acteur */
+.people__info__image img {
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    flex-shrink: 0;
+}
+
+.people__name__title { font-weight: bold; font-size: 1.1rem; text-align: center; }
+.people__place { font-size: 0.9rem; color: #555; text-align: center; }
+.people__dates { font-size: 0.9rem; text-align: center; }
+.people__biography { font-size: 0.85rem; color: #444; }
+
+/* people.php : carte film */
+.movie__card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: inherit;
+    border: 2px solid #333;
+    padding: 0.5rem;
+}
+
+.movie__card__poster {
+    width: 100px;
+    height: 140px;
+    flex-shrink: 0;
+}
+
+.movie__card__poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.movie__card__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    flex: 1;
+    justify-content: center;
+}
+
+.movie__card__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.movie__card__title { font-weight: bold; font-size: 0.95rem; }
+.movie__card__date { font-size: 0.85rem; color: #555; white-space: nowrap; }
+.movie__card__role { font-size: 0.9rem; color: #444; }
+
+.menu {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0.4rem 1rem;
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+}
+
+.menu__home {
+    background: #333;
+    padding: 0.4rem 0.7rem;
+    display: inline-flex;
+    align-items: center;
+}
+
+.menu__home svg {
+    width: 22px;
+    height: 22px;
+    fill: #fff;
+}
+
+/* --- Menu : boutons d'action --- */
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.menu__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.menu a,
+.menu button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.45rem 0.9rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: filter 0.15s ease;
+}
+
+.menu a:hover,
+.menu button:hover {
+    filter: brightness(0.92);
+}
+
+.menu__home {
+    background: #333;
+    color: #fff;
+}
+
+.menu__create {
+    background: #2e7d32;
+    color: #fff;
+}
+
+.menu__edit {
+    background: #f0ad4e;
+    color: #fff;
+}
+
+.menu__delete__form {
+    display: inline-flex;
+    margin: 0;
+}
+
+.menu__delete__form button {
+    background: #c62828;
+    color: #fff;
+}
+
+
+/* --- Formulaire film --- */
+.movie__form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 600px;
+    width: calc(100% - 2rem);
+    margin: 1.5rem auto;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 1.5rem;
+}
+
+.movie__form > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.movie__form label {
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.movie__form input,
+.movie__form textarea {
+    font-family: inherit;
+    font-size: 0.95rem;
+    padding: 0.5rem 0.6rem;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    background: #fafafa;
+    transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.movie__form input:focus,
+.movie__form textarea:focus {
+    outline: none;
+    border-color: #2e7d32;
+    background: #fff;
+}
+
+.movie__form textarea {
+    min-height: 120px;
+    resize: vertical;
+    font-family: Georgia, serif;
+}
+
+.movie__form button[type="submit"] {
+    align-self: flex-start;
+    padding: 0.6rem 1.4rem;
+    background: #2e7d32;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: filter 0.15s ease;
+}
+
+.movie__form button[type="submit"]:hover {
+    filter: brightness(0.92);
+}
+@media (min-width: 600px) {
+    .movie__form {
+        padding: 2rem;
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "name": "bouh0057/sae2-01",
+    "description": "Développement d'une application Web de consultation et modification de film et leurs acteurs",
+    "type": "project",
+    "license": "WTFPL",
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    },
+    "scripts": {
+      "start:linux": [
+        "@putenv COMPOSER_PROCESS_TIMEOUT=0",
+        "bin/run-server.sh"
+      ],
+      "test:cs": "php-cs-fixer fix --dry-run",
+      "fix:cs": "php-cs-fixer fix"
+    },
+    "authors": [
+        {
+            "name": "Ayoub Bouhia",
+            "email": "ayoub.bouhia@etudiant.univ-reims.fr"
+        }
+    ],
+    "require": {
+      "ext-pdo": "*"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.95",
+        "codeception/codeception": "^5.3"
+    }
+}
